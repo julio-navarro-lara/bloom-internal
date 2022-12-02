@@ -25,7 +25,11 @@ python3 wireshark_private_ip.py <exported text file> --private
 
 ## 2. Ping Sweep with nmap
 
-Next step would be to identify a set of internal subnetworks from the IP addresses passively gathered. We can suppose that for each private IP address, the /24 network where it is located could have other valid IP addresses.
+Next step would be to identify a set of internal subnetworks from the IP addresses passively gathered. We can suppose that for each private IP address, the /24 network where it is located could have other valid IP addresses. The list of /24 subnetworks can be extracted using the extract_subnetworks.py script
+
+```
+python3 extract_subnetworks.py <ip address list file>
+```
 
 Once we place all the /24 network to analyze in a file, we can execute a nmap ping sweep to identify active IP address, which can be automatized with the script *nmap_subnet_sweep.sh*:
 

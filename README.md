@@ -52,7 +52,7 @@ The scan used is of type `nmap -sV -Pn <ip> -oA <nmap_$ip>`, but we can easily c
 Once the scans are finished, we can easily transform the output to an Excel spreadsheet using the great tool [*nmap_converter.py*](https://github.com/mrschyte/nmap-converter):
 
 ```
-./nmap-converter.py -o <full output path .xls> <full input nmap_<ip>.xml 
+./nmap-converter.py -o <full output path .xls> <full input nmap_*.xml> 
 ```
 
 ## 4. Analyzing individual ports

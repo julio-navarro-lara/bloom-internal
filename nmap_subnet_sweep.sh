@@ -8,10 +8,12 @@ else
 
     for subnet in $(cat $1)
     do
-        echo $subnet
+        #Removing the possible trailing whitespaces
+        trimmed=`echo $subnet | tr -d " \t\n\r"`
+        echo $trimmed
         echo "..............................."
-        nmap -sn -v $subnet -oG pingsweep.txt
-        short=$(echo $subnet | cut -d "/" -f 1)
+        nmap -sn -v $trimmed -oG pingsweep.txt
+        short=$(echo $trimmed | cut -d "/" -f 1)
         echo $short
         grep Up pingsweep.txt | cut -d " " -f 2 > ips_${short}_24.txt
         echo "..............................."
